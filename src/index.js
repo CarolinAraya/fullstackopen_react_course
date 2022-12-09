@@ -1,11 +1,22 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
+import ReactDOM from "react-dom";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const Hello = (props) => {
+  return (
+    <div>
+      <p>Hello {props.name}</p>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div>
+      <h1>Greetings</h1>
+      <Hello name="George" />
+      <Hello name="Daisy" />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));

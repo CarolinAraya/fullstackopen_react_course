@@ -1,22 +1,17 @@
-import React from "react";
-import * as ReactDOMClient from "react-dom/client";
+import * as ReactDOM from "react-dom/client";
+import React, { useState } from "react";
 
-const App = (props) => {
-  const { counter } = props;
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  setTimeout(() => setCounter(counter + 1), 1000);
+
   return <div>{counter}</div>;
 };
 
-let counter = 1;
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const rootElement = document.getElementById("root");
-const root = ReactDOMClient.createRoot(rootElement);
-
-const refresh = () => {
-  root.render(<App counter={counter} />);
+const startCounter = () => {
+  root.render(<App />);
 };
-
-refresh();
-counter += 1;
-refresh();
-counter += 1;
-refresh();
+startCounter();

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import * as ReactDOMClient from "react-dom/client";
 
 const App = (props) => {
   const { counter } = props;
@@ -8,8 +8,11 @@ const App = (props) => {
 
 let counter = 1;
 
+const rootElement = document.getElementById("root");
+const root = ReactDOMClient.createRoot(rootElement);
+
 const refresh = () => {
-  ReactDOM.render(<App counter={counter} />, document.getElementById("root"));
+  root.render(<App counter={counter} />);
 };
 
 refresh();
@@ -17,5 +20,3 @@ counter += 1;
 refresh();
 counter += 1;
 refresh();
-
-ReactDOM.render(<App counter={counter} />, document.getElementById("root"));
